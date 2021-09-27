@@ -1,0 +1,23 @@
+metadata:
+  name: java17-sandbox-xalve
+components:
+  - mountSources: true
+    args:
+      - sleep
+      - infinity
+    memoryLimit: 1Gi
+    type: dockerimage
+    alias: openjdk-17
+    image: 'quay.io/sunix/openjdk:17-jdk'
+  - id: redhat/java/latest
+    type: chePlugin
+apiVersion: 1.0.0
+commands:
+  - name: Build and Run
+    actions:
+      - workdir: '${workspaceFolder}'
+        type: exec
+        command: >-
+          set -o xtrace; javac --enable-preview -source 17 *.java && java
+          --enable-preview Main
+        component: openjdk-17
