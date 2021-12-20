@@ -1,4 +1,4 @@
-metadata:
+schemaVersion: 2.1.0
   name: java17-sandbox-xalve
 components:
   - mountSources: true
@@ -11,7 +11,6 @@ components:
     image: 'quay.io/sunix/openjdk:17-jdk'
   - id: redhat/java/latest
     type: chePlugin
-apiVersion: 1.0.0
 commands:
   - name: Build and Run
     actions:
